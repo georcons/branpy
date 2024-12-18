@@ -47,7 +47,7 @@ To use this method one must first import thair OpenAI API key via the ``SetOpenA
 
     clf = DomainClf(method='openai', task='main', model='gpt-4o-mini')
     
-    clf.SetOpenAiApiKey("\{YOUR_API_KEY\}")
+    clf.SetOpenAiApiKey("{YOUR_API_KEY}")
 
     domains = clf.classify(lst)
 
@@ -62,7 +62,7 @@ OpenAI Batch API
 To reduce costs one may use the Batch API of OpenAI. Specify ``method=='openai-batch'``. 
 Once again the use has to set thei OpenAI API key. In this case the ``classify()`` method return only 
 the Batch ID that can be later used to retrieve the result. It is also possible to specify the directory 
-at which the batch file will be created. To do that use ``directory=\{DIRECTORY\}`` at the constructor.
+at which the batch file will be created. To do that use ``directory={DIRECTORY}`` at the constructor.
 
 .. code-block:: python
 
@@ -70,7 +70,7 @@ at which the batch file will be created. To do that use ``directory=\{DIRECTORY\
 
     clf = DomainClf(method='openai-batch', task='main', model='gpt-4o-mini')
     
-    clf.SetOpenAiApiKey("\{YOUR_API_KEY\}")
+    clf.SetOpenAiApiKey("{YOUR_API_KEY}")
 
     batch_id = clf.classify(lst)
 
@@ -88,9 +88,9 @@ problems requested for classification. At each respective possition the predicte
 
     from branpy import DomainClfBatchRetriever
 
-    rtv = DomainClfBatchRetriever(batch_id="\{BATCH_ID\}")
+    rtv = DomainClfBatchRetriever(batch_id="{BATCH_ID}")
     
-    rtv.SetOpenAiApiKey("\{YOUR_API_KEY\}")
+    rtv.SetOpenAiApiKey("{YOUR_API_KEY}")
 
     result = rtv.retrieve()
 
