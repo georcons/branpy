@@ -35,7 +35,7 @@ GPT Approach
 ----
 
 Another method for classification is to use an OpenAI model. Specify ``method='openai'`` at the constructor.
-To use this method one must first import thair OpenAI API key via the ``SetOpenAiApiKey()`` method.
+To use this method one must first import their OpenAI API key via the ``SetOpenAiApiKey()`` method.
 
     from branpy import DomainClf
 
