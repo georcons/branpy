@@ -54,7 +54,7 @@ OpenAI Batch API
 ----
 
 To reduce costs one may use the Batch API of OpenAI. Specify ``method='openai-batch'``. 
-Once again the use has to set their OpenAI API key. In this case the ``classify()`` method return only 
+Once again the use has to set their OpenAI API key. In this case the ``classify()`` method returns only 
 the Batch ID that can be later used to retrieve the result. It is also possible to specify the directory 
 at which the batch file will be created. To do that use ``directory={DIRECTORY}`` at the constructor.
 
@@ -72,7 +72,7 @@ at which the batch file will be created. To do that use ``directory={DIRECTORY}`
 Retrieving an OpenAI Batch API Request
 -----
 
-For batch result retrival the ``DomainClfBatchRetriever`` class is provided. In the contructor put the Batch ID
+For batch result retrival the ``DomainClfBatchRetriever`` class is provided. In the constructor put the Batch ID
 and use the ``retrieve()`` method to get the results. The method outputs a list of the same length as the number of 
 problems requested for classification. At each respective possition the predicted class is set if the result is successful.
 
@@ -84,5 +84,5 @@ problems requested for classification. At each respective possition the predicte
 
     result = rtv.retrieve()
 
-The ``retrieve()`` method return a dictionary with a key ``status`` that is ``completed`` if the batch job is done. In this case 
+The ``retrieve()`` method returns a dictionary with a key ``status`` that is ``completed`` if the batch job is done. In this case 
 the dicitonary contains a key ``result`` that is a list of the classes.
