@@ -8,7 +8,7 @@ The main class of the package is the ``DomainClf`` class. There are several clas
 
 
 Possible Tasks
----
+----
 At the ``DomainClf`` constructor one can specify to what depth the classifier should make its predictions. To do so 
 select ``task=main`` for the five main branches (Algebra, Geometry, Number Theory, Combinatorics and Others), ``task=reduced`` to 
 predict 24 greater branches and ``task=complete`` to predict one of all the 139 possible domains in the classifier.
