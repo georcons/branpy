@@ -53,7 +53,7 @@ As of now, only ``gpt-4o-mini`` and ``gpt-4o`` models are supported.
 OpenAI Batch API
 ----
 
-To reduce costs one may use the Batch API of OpenAI. Specify ``method=='openai-batch'``. 
+To reduce costs one may use the Batch API of OpenAI. Specify ``method='openai-batch'``. 
 Once again the use has to set thei OpenAI API key. In this case the ``classify()`` method return only 
 the Batch ID that can be later used to retrieve the result. It is also possible to specify the directory 
 at which the batch file will be created. To do that use ``directory={DIRECTORY}`` at the constructor.
