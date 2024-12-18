@@ -20,15 +20,11 @@ Naive Bayer Classifier
 
 To use a pre-trained Naive Bayes Classifier one must specify ``method='offline'`` at the ``DomainClf`` constructor:
 
-.. code-block:: python
-
     from branpy import DomainClf
 
     clf = DomainClf(method='offline', task='main')
 
 To classify a list of string problem statements one must call the ``classify()`` method of the created object.
-
-.. code-block:: python
 
     domains = clf.classify(lst)
 
@@ -40,8 +36,6 @@ GPT Approach
 
 Another method for classification is to use an OpenAI model. Specify ``method='openai'`` at the constructor.
 To use this method one must first import thair OpenAI API key via the ``SetOpenAiApiKey()`` method.
-
-.. code-block:: python
 
     from branpy import DomainClf
 
@@ -64,8 +58,6 @@ Once again the use has to set thei OpenAI API key. In this case the ``classify()
 the Batch ID that can be later used to retrieve the result. It is also possible to specify the directory 
 at which the batch file will be created. To do that use ``directory={DIRECTORY}`` at the constructor.
 
-.. code-block:: python
-
     from branpy import DomainClf
 
     clf = DomainClf(method='openai-batch', task='main', model='gpt-4o-mini')
@@ -83,8 +75,6 @@ Retrieving an OpenAI Batch API Request
 For batch result retrival the ``DomainClfBatchRetriever`` class is provided. In the contructor put the Batch ID
 and use the ``retrieve()`` method to get the results. The method outputs a list of the same length as the number of 
 problems requested for classification. At each respective possition the predicted class is set if the result is successful.
-
-.. code-block:: python
 
     from branpy import DomainClfBatchRetriever
 
