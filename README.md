@@ -85,4 +85,4 @@ problems requested for classification. At each respective possition the predicte
     result = rtv.retrieve()
 
 The ``retrieve()`` method returns a dictionary with a key ``status`` that is ``completed`` if the batch job is done. In this case 
-the dicitonary contains a key ``result`` that is a list of the classes.
+the dictionary contains a key ``result`` that is a list of the classes.
