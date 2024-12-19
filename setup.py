@@ -12,12 +12,12 @@ long_description = read_file("README.rst")
 requirements = read_requirements("requirements.txt")
 
 setup(
-    name = 'BranPy',
+    name = 'branpy',
     version = "1.0.0",
     author = 'Nikolay Georgiev',
     description = 'A package for classifying math problem domains.',
     long_description_content_type = "text/x-rst",  
     long_description = long_description,
-    packages = find_packages(exclude=["test", "paper"]),
+    packages = find_packages(include=["src"]),
     install_requires = requirements
 )
