@@ -3,13 +3,15 @@ import pickle
 import json
 import string
 import random
+from . import bayesian
+from importlib import resources
 from operator import itemgetter
-from prompts import FILTER_SYSTEM_PROMPT
-from prompts import GENERATE_USER_PROMPT
-from tasks import map_main_task
-from tasks import map_reduced_to_main
-from tasks import map_reduced_task
-from probproc import load_problems
+from .prompts import FILTER_SYSTEM_PROMPT
+from .prompts import GENERATE_USER_PROMPT
+from .tasks import map_main_task
+from .tasks import map_reduced_to_main
+from .tasks import map_reduced_task
+from .probproc import load_problems
 
 class DomainClfBatchRetriever:
     def __init__(self, batch_id):
@@ -219,7 +221,8 @@ class DomainClf:
         output = []
 
         if self.task != "complete":
-            with open("bayesian.pk", "rb") as file:
+            inp_file = resources.files(bayesian) / "bayesian.pk"
+            with inp_file.open('rb') as file:
                 bayes = pickle.load(file)
                 vectorizer = bayes["vectorizer"]
                 clf = bayes["model"]
@@ -233,7 +236,8 @@ class DomainClf:
                     output = results
         
         else:
-            with open("bayesian-complete.pk", "rb") as file:
+            inp_file = resources.files(bayesian) / "bayesian_complete.pk" 
+            with inp_file.open("rb") as file:
                 bayes = pickle.load(file)
                 vectorizer = bayes["vectorizer"]
                 clf = bayes["model"]
@@ -268,7 +272,7 @@ class DomainClf:
     
     def _execute_single_openai_task(self, statement, model, system_prompt):
         try:
-            response = openai.ChatCompletion.create(
+            response = openai.chat.completions.create(
                 model=model, 
                 messages=[
                     {"role": "system", "content": system_prompt},
@@ -278,7 +282,7 @@ class DomainClf:
                 temperature=0.7 
             )
         
-            assistant_response = response['choices'][0]['message']['content'].strip()
+            assistant_response = response.choices[0].message.content
             return assistant_response
 
         except Exception as e:
