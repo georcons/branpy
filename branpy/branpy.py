@@ -6,12 +6,12 @@ import random
 #from . import bayesian
 from importlib import resources
 from operator import itemgetter
-from prompts import FILTER_SYSTEM_PROMPT
-from prompts import GENERATE_USER_PROMPT
-from tasks import map_main_task
-from tasks import map_reduced_to_main
-from tasks import map_reduced_task
-from probproc import load_problems
+from .prompts import FILTER_SYSTEM_PROMPT
+from .prompts import GENERATE_USER_PROMPT
+from .tasks import map_main_task
+from .tasks import map_reduced_to_main
+from .tasks import map_reduced_task
+from .probproc import load_problems
 
 class DomainClfBatchRetriever:
     def __init__(self, batch_id):
